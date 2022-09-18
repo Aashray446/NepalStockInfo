@@ -67,3 +67,20 @@ h2 {
   left : 50%;
   transform: translate(-50%, -50%);
 }
+
+.searchResults {
+  width: 100%;
+  align-items: center;
+}
+
+.searchResult p {
+  background-color: white;
+  margin: 5px;
+  border-radius: 400px;
+}
+.searchResult p:hover {
+  cursor: pointer;
+  translate: 0px -2px ;
+  transition-duration: 0.5s;
+}
+

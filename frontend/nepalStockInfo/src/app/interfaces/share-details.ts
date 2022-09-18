@@ -2,6 +2,7 @@ export interface ShareDetails {
   imgUrl : string;
   category : string;
   company : string;
+  description : string;
   eps : number;
   peRation: number;
   paidUpCapital: number;
