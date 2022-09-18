@@ -1,0 +1,20 @@
+.tableView {
+  margin-top: 50px;
+  text-align: center;
+}
+table {
+  color: black;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  height: 100px;
+  overflow-y: auto;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}

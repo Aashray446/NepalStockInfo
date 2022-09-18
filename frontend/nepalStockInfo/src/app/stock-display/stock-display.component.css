@@ -1,0 +1,26 @@
+.detailContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.detail {
+    margin: 8px;
+}
+
+.detail .label {
+    display: inline;
+    font-weight: bolder;
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+    padding: 16px;
+}
+
+.detail .value {
+  padding: 16px;
+    display: inline;
+    font-size: 1.2em;
+}
