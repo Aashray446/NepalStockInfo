@@ -13,6 +13,8 @@ import { CardsDetailContainerComponent } from './cards-detail-container/cards-de
 import { CategoryPagesComponent } from './category-pages/category-pages.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { RegisterComponent } from './register/register.component';
     CardsDetailContainerComponent,
     CategoryPagesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

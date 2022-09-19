@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-details',
@@ -8,16 +8,20 @@ import { Router } from '@angular/router';
 })
 export class CardDetailsComponent implements OnInit {
 
-  @Input() name:String = "Name";
-  @Input() url:String = "../../assets/images/upperhewakhola.jpg";
+  @Input() name:string = "Name";
+  @Input() url:string = "../../assets/images/upperhewakhola.jpg";
   @Input() category = "Category";
 
   constructor( private router: Router) {
+    // route.params.subscribe(url => {
+    //   this.goToDetails(this.name);
+    // });
   }
 
   ngOnInit(): void {
     console.log(this.url);
   }
+
 
 
   goToDetails(shareName:string) {
