@@ -7,7 +7,7 @@
             <div class="flexslider1">
               <ul class="slides">
                 <li data-thumb="../../assets/images/upperhewakhola.jpg">
-                  <div class="thumb-image"> <img src="../../assets/images/upperhewakhola.jpg" data-imagezoom="true"
+                  <div class="thumb-image"> <img [src]="this.shareDetails.imgUrl" data-imagezoom="true"
                       class="img-fluid" alt=" ">
                   </div>
                 </li>
@@ -29,21 +29,25 @@
                 <h5>EPS : <span>{{this.shareDetails.eps}}</span></h5>
               </div>
               <div class="color-quality-right">
-                <h5>P.E Ratio : <span>{{this.shareDetails.peRatio}}</span></h5>
+                <h5>P.E. Ratio : <span>{{this.shareDetails.peRatio}}</span></h5>
               </div>
               <div class="color-quality-right">
-                <h5>Paid Up Capital : <span>{{this.shareDetails.paidUpCapital}}</span></h5>
+                <h5>Paid-Up Capital : <span>{{this.shareDetails.paidUpCapital}}</span></h5>
               </div>
             </div>
             <div class="col-sm-6 col-12">
               <div class="color-quality-right">
-                <h5>Book value : <span>{{this.shareDetails.bookValue}}</span></h5>
+                <h5>Book Value : <span>{{this.shareDetails.bookValue}}</span></h5>
               </div>
               <div class="color-quality-right">
-                <h5>Market Cap : <span>{{this.shareDetails.marketCap}}</span></h5>
+                <h5>Market Capitalization : <span>{{this.shareDetails.marketCap}}</span></h5>
               </div>
               <div class="color-quality-right">
                 <h5>Dividend History : <span></span></h5>
+              <h5>&emsp;Year : <span>{{this.shareDetails.dividenHistory[0].year}}</span></h5>
+                <h5>&emsp;Cash : <span>{{this.shareDetails.dividenHistory[0].cash}}</span></h5>
+                <h5>&emsp;Bonus : <span>{{this.shareDetails.dividenHistory[0].bonus}}</span></h5>
+                <h5>&emsp;Total : <span>{{this.shareDetails.dividenHistory[0].total}}</span></h5>
               </div>
             </div>
           </div>
