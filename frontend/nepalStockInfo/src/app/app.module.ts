@@ -10,6 +10,7 @@ import { StockListComponent } from './stock-list/stock-list.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { CardsDetailContainerComponent } from './cards-detail-container/cards-detail-container.component';
+import { CategoryPagesComponent } from './category-pages/category-pages.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CardsDetailContainerComponent } from './cards-detail-container/cards-de
     StockListComponent,
     CardDetailsComponent,
     FooterComponent,
-    CardsDetailContainerComponent
+    CardsDetailContainerComponent,
+    CategoryPagesComponent
   ],
   imports: [
     BrowserModule,

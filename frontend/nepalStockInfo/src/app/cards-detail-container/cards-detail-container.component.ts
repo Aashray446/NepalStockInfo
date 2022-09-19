@@ -19,13 +19,15 @@ export class CardsDetailContainerComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     if (this.filterOption == "all") {
       this.shareDetails = this.searchDetails.shareDetails;
     }
     else {
-      this.shareDetails = this.searchDetails.getShareDetailsByCategory(this.filterOption);
-    }
 
+      this.shareDetails = this.searchDetails.getShareDetailsByCategory(this.filterOption);
+
+    }
 
   }
 
