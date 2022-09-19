@@ -11,6 +11,8 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { CardsDetailContainerComponent } from './cards-detail-container/cards-detail-container.component';
 import { CategoryPagesComponent } from './category-pages/category-pages.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CategoryPagesComponent } from './category-pages/category-pages.componen
     CardDetailsComponent,
     FooterComponent,
     CardsDetailContainerComponent,
-    CategoryPagesComponent
+    CategoryPagesComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
