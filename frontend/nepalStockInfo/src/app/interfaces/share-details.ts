@@ -4,7 +4,7 @@ export interface ShareDetails {
   company : string;
   description : string;
   eps : number;
-  peRation: number;
+  peRatio: number;
   paidUpCapital: number;
   bookValue: number;
   marketCap: number;

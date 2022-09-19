@@ -6,7 +6,7 @@ import { StockDisplayComponent } from './stock-display/stock-display.component';
 const routes: Routes = [
 
   { path:'' , component: HomepageComponent },
-  { path:'stock-Information' , component: StockDisplayComponent },
+  { path:'stock-Information/:name' , component: StockDisplayComponent },
 
 
 ];

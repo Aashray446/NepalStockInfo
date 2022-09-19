@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ShareDetails } from '../interfaces/share-details';
+import { ShareDetailsService } from '../services/share-details.service';
 
 @Component({
   selector: 'app-stock-display',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockDisplayComponent implements OnInit {
 
-  constructor() { }
+
+  public shareDetails: ShareDetails;
+
+
+  constructor( private stockDetails:ShareDetailsService, private route : ActivatedRoute) {
+    let name = this.route.snapshot.paramMap.get('name') as string;
+    this.shareDetails = this.stockDetails.getShareDetailsByName(name);
+    console.log(this.shareDetails);
+   }
 
   ngOnInit(): void {
+
+
   }
+
+
 
 }

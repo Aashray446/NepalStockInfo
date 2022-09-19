@@ -28,7 +28,7 @@
           <div class="searchResult" [hidden]="hideDrop">
             <p *ngIf="shareNames.length < 1"> Sorry Nothing Found</p>
             <div *ngFor="let shareName of shareNames">
-              <p>{{shareName.company}}</p>
+              <p (click)="goToDetails(shareName)">{{shareName.company}}</p>
             </div>
           </div>
         </div>
@@ -37,4 +37,4 @@
   </div>
   <!--//banner -->
 </div>
-<app-card-details name="aasjrua" url="aashr"></app-card-details>
+<app-cards-detail-container filterOption="all"></app-cards-detail-container>

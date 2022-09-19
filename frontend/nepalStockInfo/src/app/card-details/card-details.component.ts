@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ShareDetails } from '../interfaces/share-details';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-details',
@@ -9,12 +9,19 @@ import { ShareDetails } from '../interfaces/share-details';
 export class CardDetailsComponent implements OnInit {
 
   @Input() name:String = "Name";
-  @Input() url:String = "https://www.nepalstock.com/company";
-  constructor(  ) {
+  @Input() url:String = "../../assets/images/upperhewakhola.jpg";
+  @Input() category = "Category";
+
+  constructor( private router: Router) {
   }
 
   ngOnInit(): void {
     console.log(this.url);
+  }
+
+
+  goToDetails(shareName:string) {
+    this.router.navigate(['/stock-Information', shareName]);
   }
 
 }
