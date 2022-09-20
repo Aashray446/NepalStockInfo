@@ -10,7 +10,12 @@ export class CategoryPagesComponent implements OnInit {
 
   public filter = "all";
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {
+    this.route.paramMap.subscribe(params => {
+      this.ngOnInit();
+  });
+
+   }
 
   ngOnInit(): void {
     this.filter = this.route.snapshot.paramMap.get('category') as string;

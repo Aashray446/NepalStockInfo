@@ -14,7 +14,10 @@ export class StockDisplayComponent implements OnInit {
   public shareDetails: ShareDetails;
 
 
-  constructor( private stockDetails:ShareDetailsService, private route : ActivatedRoute) {
+  constructor( private stockDetails:ShareDetailsService, private route : ActivatedRoute,  private _activatedRoute: ActivatedRoute) {
+    this._activatedRoute.paramMap.subscribe(params => {
+      this.ngOnInit();
+  });
     let name = this.route.snapshot.paramMap.get('name') as string;
     this.shareDetails = this.stockDetails.getShareDetailsByName(name);
     console.log(this.shareDetails);
@@ -22,6 +25,8 @@ export class StockDisplayComponent implements OnInit {
 
   ngOnInit(): void {
 
+    let name = this.route.snapshot.paramMap.get('name') as string;
+    this.shareDetails = this.stockDetails.getShareDetailsByName(name);
 
   }
 

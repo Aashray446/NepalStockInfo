@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ShareDetails } from '../interfaces/share-details';
 import { SearchDetailsService } from '../services/search-details.service';
 
@@ -13,7 +14,13 @@ export class CardsDetailContainerComponent implements OnInit {
 
   public shareDetails: ShareDetails[] = [];
 
-  constructor(private searchDetails : SearchDetailsService) {
+  constructor(private searchDetails : SearchDetailsService,         private _activatedRoute: ActivatedRoute
+    ) {
+
+    this._activatedRoute.paramMap.subscribe(params => {
+      this.ngOnInit();
+  });
+
 
    }
 

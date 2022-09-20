@@ -43,7 +43,6 @@ export class UserServicesService {
     console.log(user);
     if(user){
     localStorage.setItem('user', JSON.stringify(user));
-    window.location.reload();
     return true;
     }
     return false;

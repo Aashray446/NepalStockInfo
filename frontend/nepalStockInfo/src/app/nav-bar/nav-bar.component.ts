@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../interfaces/user';
 
@@ -11,13 +12,18 @@ export class NavBarComponent implements OnInit {
 
   public isLogged  : boolean = false;
 
-  constructor() { }
+  constructor(private route: Router) {
+    this.route.events.subscribe(params => {
+      this.ngOnInit();
+  });
+   }
 
   ngOnInit(): void {
 
     let user = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') || '{}'));
 
-    if(Object.entries(user).length !== 0 && user.constructor !== Object ){
+
+    if(Object.entries(user.value).length !==0 ){
       this.isLogged = true;
     }
 

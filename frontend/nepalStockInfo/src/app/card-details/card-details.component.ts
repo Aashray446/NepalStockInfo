@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserServicesService } from '../services/user-services.service';
 
 @Component({
@@ -15,19 +15,18 @@ export class CardDetailsComponent implements OnInit {
   @Input() url:string = "../../assets/images/upperhewakhola.jpg";
   @Input() category = "Category";
 
-  constructor( private router: Router, private userService: UserServicesService) { }
+  constructor( private _activatedRoute: ActivatedRoute, private router : Router, private userService: UserServicesService) {
+
+    this._activatedRoute.paramMap.subscribe(params => {
+
+      this.ngOnInit();
+  });
+  }
     // route.params.subscribe(url => {
     //   this.goToDetails(this.name);
     // });
 
   ngOnInit(): void {
-    this.router.events.subscribe((val) => {
-      // see also
-    //   this.router.navigateByUrl('/share-Information', { skipLocationChange: true }).then(() => {
-    //     this.router.navigate(['/share-Information', this.name]);
-    // });
-    console.log("val", val);
-    });
   }
 
 
