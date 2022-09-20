@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { UserServicesService } from '../services/user-services.service';
 
 @Component({
   selector: 'app-card-details',
@@ -8,24 +9,36 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CardDetailsComponent implements OnInit {
 
+  public email = this.userService.getLoggedInEmail();
+
   @Input() name:string = "Name";
   @Input() url:string = "../../assets/images/upperhewakhola.jpg";
   @Input() category = "Category";
 
-  constructor( private router: Router) {
+  constructor( private router: Router, private userService: UserServicesService) { }
     // route.params.subscribe(url => {
     //   this.goToDetails(this.name);
     // });
-  }
 
   ngOnInit(): void {
-    console.log(this.url);
+    this.router.events.subscribe((val) => {
+      // see also
+    //   this.router.navigateByUrl('/share-Information', { skipLocationChange: true }).then(() => {
+    //     this.router.navigate(['/share-Information', this.name]);
+    // });
+    console.log("val", val);
+    });
   }
 
 
 
   goToDetails(shareName:string) {
-    this.router.navigate(['/stock-Information', shareName]);
+    // window.location.href = "/share-Information/" + shareName;
+    this.router.navigate(['/share-Information', shareName]);
+  }
+
+  addToFav(name:string) {
+    this.userService.addToFavourate(this.email,name);
   }
 
 }

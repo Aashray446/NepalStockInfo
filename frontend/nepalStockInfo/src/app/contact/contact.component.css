@@ -1,0 +1,90 @@
+.wrapper{
+  position: relative;
+  margin: 16px;
+  left: 30%;
+  width: 100%;
+  max-width: 550px;
+  background: rgba(0,0,0,0.2);
+  padding: 30px;
+  border-radius: 5px;
+border:0.5px solid #056DB0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.9);
+
+}
+
+.wrapper .title h1{
+  color: #fff;
+
+  margin-bottom: 25px;
+}
+
+.contact-form{
+  display: flex;
+}
+
+.input-fields{
+  display: flex;
+  flex-direction: column;
+  margin-right: 4%;
+}
+
+.input-fields,
+.msg{
+  width: 48%;
+}
+
+.input-fields .input,
+.msg textarea{
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 1px solid #056DB0;
+  padding: 10px;
+  color: #fff;
+  width: 100%;
+}
+
+.msg textarea{
+  height: 212px;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #fff;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #ffff;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #fff;
+}
+
+.btn {
+background-image: linear-gradient(to left bottom, #39b7dd, #20a5d4, #0392c9, #0080bd, #056db0);
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+
+}
+.btn:hover{
+background-image: linear-gradient(to right top, #0392c9, #0b97cc, #129ccf, #19a0d1, #20a5d4);
+transition: 0.5s;
+}
+
+@media screen and (max-width: 600px){
+  .contact-form{
+    flex-direction: column;
+  }
+  .msg textarea{
+    height: 80px;
+  }
+  .input-fields,
+  .msg{
+    width: 100%;
+  }
+}

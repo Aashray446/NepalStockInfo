@@ -1,3 +1,27 @@
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
 }
+
+.cart #favStockList {
+  display: none;
+  background-color: white;
+  border: 1px solid black;
+  padding: 4px;
+  position: absolute;
+  height: 400px;
+  align-items: center;
+  z-index: 999;
+  transition: all ease-in-out;
+}
+
+.cart:hover #favStockList {
+  display: block;
+}
+
+#favStockList a {
+  display: block;
+  margin-top: 4px;
+}
+#favStockList a:hover {
+  background-color: #f1f1f1;
+}

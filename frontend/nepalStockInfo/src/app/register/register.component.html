@@ -1,1 +1,37 @@
-<p>register works!</p>
+<div class="container">
+  <div class="wrap">
+    <h5 class="text-center mb-4">Login Now</h5>
+    <h3 class="text-center text-danger" [style.display]="showErrorMessages">{{this.errorMessage}}</h3>
+    <div class="login p-5 bg-dark mx-auto mw-100">
+      <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+        <div class="form-group">
+          <label class="mb-2">Full Name</label>
+          <input type="email" name="name" class="form-control" ngModel aria-describedby="emailHelp" placeholder=""
+            required>
+        </div>
+        <div class="form-group">
+          <label class="mb-2">Email address</label>
+          <input type="email" name="email" class="form-control" ngModel id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="" required>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label class="mb-2">Password</label>
+          <input type="password" class="form-control" ngModel name="password" id="exampleInputPassword1" placeholder=""
+            required>
+        </div>
+        <div class="form-group">
+          <label class="mb-2">Confirm Password</label>
+          <input type="password" class="form-control" ngModel name="confirmPassword" ngModel id="exampleInputPassword2"
+            placeholder="" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+
+
+      </form>
+    </div>
+    <!---->
+  </div>
+
+</div>

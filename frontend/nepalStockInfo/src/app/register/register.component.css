@@ -1,0 +1,7 @@
+.wrap {
+  position: relative;
+  max-width: 800px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-70%, -15%);
+}

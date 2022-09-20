@@ -20,19 +20,33 @@
     <div class="col-md-3 top-info-cart text-right mt-lg-4">
       <ul class="cart-inner-info">
         <li class="button-log">
+          <a class="btn-open" (click)="logOut()" *ngIf="isLogged" href="#">
+            Logout
+          </a>
+        </li>
+        <li class="button-log" *ngIf="!isLogged">
           <a class="btn-open" routerLink="/login" href="#">
             <span class="fa fa-user" aria-hidden="true"></span>
           </a>
         </li>
-        <li class="galssescart galssescart2 cart cart box_1">
+        <li *ngIf="isLogged" class="galssescart galssescart2 cart cart box_1">
           <form action="#" method="post" class="last">
             <input type="hidden" name="cmd" value="_cart">
             <input type="hidden" name="display" value="1">
-            <button class="top_googles_cart" type="submit" name="submit" value="">
+            <a [routerLink]="['/dashboard']" class="top_googles_cart">
               Watchlist
               <i class="fas fa-cart-arrow-down"></i>
-            </button>
+            </a>
           </form>
+          <div hidden id="favStockList">
+            <a href="">NIC ASIA BANK LIMITED</a>
+            <a href="">NIC ASIA BANK LIMITED</a>
+            <a href="">NIC ASIA BANK LIMITED</a>
+            <a href="">NIC ASIA BANK LIMITED</a>
+            <a href="">NIC ASIA BANK LIMITED</a>
+            <a href="">NIC ASIA BANK LIMITED</a>
+            <a href="">NIC ASIA BANK LIMITED</a>
+          </div>
         </li>
       </ul>
       <!---->
@@ -53,7 +67,8 @@
               </div>
               <div class="form-group">
                 <label class="mb-2">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" required="">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password"
+                  required="">
               </div>
               <div class="form-check mb-2">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -120,7 +135,7 @@
                 <div class="col-12 media-list text-center">
                   <ul>
                     <li class="media-mini mt-3">
-                      <a [routerLink]="['/category', 'Hydropower']">Hydropower</a>
+                      <a [routerLink]="['/category', 'HydroPsower']">Hydropower</a>
                     </li>
                     <li class="">
                       <a [routerLink]="['/category', 'Bank']">Bank</a>
@@ -139,7 +154,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/contact']" >Contact</a>
+          <a class="nav-link" [routerLink]="['/contact']">Contact</a>
         </li>
       </ul>
 
