@@ -46,14 +46,9 @@ export class RegisterComponent implements OnInit {
     }
 
     if(   this.userService.getRegister(user.name, user.email, user.password, user.confirmPassword)) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
       return;
     }
-
-    window.alert('Something went Wrong');
-
-
-
   }
 
 }

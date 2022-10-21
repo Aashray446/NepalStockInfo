@@ -19,26 +19,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-
-    this.showErrorMessages = 'none';
-    this.errorMessage = '';
-
-    if(form.status == 'INVALID') {
-      this.showErrorMessages = 'block';
-      this.errorMessage = 'Please fill all the fields';
-      return;
-    }
-
     //call service to login user
-    if(!this.userService.getLoggedIn(form.value.email, form.value.password)) {
-      //redirect to home page
-      this.errorMessage = 'Invalid email or password';
-      this.showErrorMessages = 'block';
-      return;
-    }
-
-    this.router.navigate(['/dashboard']);
-
+    this.userService.getLoggedIn(form.value.email, form.value.password);
   }
 
 }

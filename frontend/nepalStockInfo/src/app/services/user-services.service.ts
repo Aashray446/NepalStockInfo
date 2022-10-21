@@ -44,15 +44,22 @@ export class UserServicesService {
 
 
   getLoggedIn(email:string , password:string){
-    let user = this.userDetails.find(user => user.email === email && user.password === password);
-    //store user into local storage
-    console.log(user);
-    if(user){
-    localStorage.setItem('user', JSON.stringify(user));
-    return true;
-    }
-    return false;
-  }
+
+    this._httpClient.post(`${apiBaseUrl}/auth/login`, {email: email, password: password}).subscribe(
+      {
+        next: (response:any) => {
+          localStorage.setItem('token', response.content.tokens.accessToken.token);
+          localStorage.setItem('expiresIn' , response.content.tokens.accessToken.expiresIn);
+          localStorage.setItem('user', JSON.stringify(response.content.user));
+          this._toastr.success('Login Successful');
+        return true;
+        },
+        error: (error) => {
+          this._toastr.error("Login Failed, Invalid Credentials");
+          return false;
+        }});
+        return false;
+  };
 
   getRegister(name:string, email:string, password:string, confirmPassword:string){
 
@@ -69,14 +76,20 @@ export class UserServicesService {
       this._httpClient.post(`${apiBaseUrl}/auth/register`, newUser).subscribe(
         {
           next: (response:any) => {
-
+            console.log(response);
+            localStorage.setItem('token', response.content.tokens.accessToken.token);
+            localStorage.setItem('expiresIn' , response.content.tokens.accessToken.expiresIn);
+            localStorage.setItem('user', JSON.stringify(response.content.user));
+            this._toastr.success('Registration Successful');
+            return true;
           },
           error: (error) => {
-            console.log(error);
+            this._toastr.error("Registration Failed, User Already Exists");
+            return false;
           }
         }
       );
-      return true;
+      return false;
     }
 
   addToFavourate(email:string, stock:string){

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../interfaces/user';
 
@@ -31,6 +31,7 @@ export class NavBarComponent implements OnInit {
 
   logOut() {
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
     this.isLogged = false;
   }
 
