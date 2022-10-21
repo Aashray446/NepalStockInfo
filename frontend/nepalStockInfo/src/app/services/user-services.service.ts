@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../interfaces/user';
+import { apiBaseUrl } from './api.config';
+import {HttpClient} from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServicesService {
 
-  private isLoggedIn = new BehaviorSubject<boolean>(localStorage.getItem('loggedIn') ? true : false);
-  private loggedUser = new BehaviorSubject<User[]>(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') || '{}') : []);
+  private _isLoggedIn = new BehaviorSubject<boolean>(localStorage.getItem('loggedIn') ? true : false);
+  private _loggedUser = new BehaviorSubject<User[]>(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') || '{}') : []);
+
+
 
   public userDetails:User[] = [
     {
@@ -30,12 +35,13 @@ export class UserServicesService {
     },
   ]
 
-  constructor() { }
+  constructor(private _httpClient: HttpClient, private _toastr : ToastrService) { }
 
 
   public getUserInfo() {
     return "this is user info";
   }
+
 
   getLoggedIn(email:string , password:string){
     let user = this.userDetails.find(user => user.email === email && user.password === password);
@@ -49,23 +55,29 @@ export class UserServicesService {
   }
 
   getRegister(name:string, email:string, password:string, confirmPassword:string){
-    let user = this.userDetails.find(user => user.email === email);
-    if(user){
-      return false;
-    }else{
+
+    const firstName = name.split(' ')[0];
+    const lastName = name.split(' ')[1];
+
       let newUser = {
-        id: this.userDetails.length + 1,
-        name: name,
+        firstName: firstName,
+        lastName: lastName,
         email: email,
         password: password,
-        confirmPassword: confirmPassword,
-        favourateStocks: []
       }
-      this.userDetails.push(newUser);
+
+      this._httpClient.post(`${apiBaseUrl}/auth/register`, newUser).subscribe(
+        {
+          next: (response:any) => {
+
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        }
+      );
       return true;
     }
-
-  }
 
   addToFavourate(email:string, stock:string){
     let user = this.userDetails.find(user => user.email === email);
@@ -90,7 +102,6 @@ export class UserServicesService {
     let user = JSON.parse(localStorage.getItem('user') || '{}');
     return user.email;
   }
-
 
 
 
