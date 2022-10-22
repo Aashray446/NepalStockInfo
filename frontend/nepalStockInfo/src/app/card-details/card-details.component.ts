@@ -37,7 +37,7 @@ export class CardDetailsComponent implements OnInit {
   }
 
   addToFav(name:string) {
-    this.userService.addToFavourate(this.email,name);
+    // this.userService.addToFavourate(this.email,name);
   }
 
 }
