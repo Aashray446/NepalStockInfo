@@ -15,6 +15,7 @@ export class ShareDetailsService {
     eps : 0,
     peRatio: 0,
     paidUpCapital: 0,
+    ltd: 0,
     bookValue: 0,
     marketCap: 0,
     dividenHistory: [

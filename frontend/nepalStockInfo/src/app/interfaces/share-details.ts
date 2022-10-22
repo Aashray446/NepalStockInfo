@@ -8,6 +8,7 @@ export interface ShareDetails {
   paidUpCapital: number;
   bookValue: number;
   marketCap: number;
+  ltd: number;
   dividenHistory: [
     {
       year: number;
