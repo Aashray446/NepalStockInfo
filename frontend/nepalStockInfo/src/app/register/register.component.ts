@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
 import { UserServicesService } from '../services/user-services.service';
 
@@ -13,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   public errorMessage: string = 'this wrro';
   public showErrorMessages: string = 'none';
-  constructor(private userService: UserServicesService, private router:Router) { }
+  constructor(private userService: UserServicesService) { }
 
   ngOnInit(): void {
   }
@@ -44,11 +43,7 @@ export class RegisterComponent implements OnInit {
       confirmPassword: form.value.confirmPassword,
       favourateStocks: []
     }
-
-    if(   this.userService.getRegister(user.name, user.email, user.password, user.confirmPassword)) {
-      this.router.navigate(['/']);
-      return;
-    }
+    this.userService.getRegister(user.name, user.email, user.password, user.confirmPassword);
   }
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UserServicesService } from '../services/user-services.service';
 
 @Component({
@@ -13,7 +12,7 @@ export class LoginComponent implements OnInit {
   public showErrorMessages: string = 'none';
   public errorMessage: String = '';
 
-  constructor(private userService: UserServicesService, private router:Router) { }
+  constructor(private userService: UserServicesService) { }
 
   ngOnInit(): void {
   }

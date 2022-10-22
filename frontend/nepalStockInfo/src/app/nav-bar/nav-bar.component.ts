@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { User } from '../interfaces/user';
+import { UserServicesService } from '../services/user-services.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,22 +11,14 @@ export class NavBarComponent implements OnInit {
 
   public isLogged  : boolean = false;
 
-  constructor(private route: Router) {
-    this.route.events.subscribe(params => {
-      this.ngOnInit();
-  });
-   }
+  constructor(private route: Router, private _userService : UserServicesService) { }
 
   ngOnInit(): void {
 
-    let user = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') || '{}'));
-
-
-    if(Object.entries(user.value).length !==0 ){
-      this.isLogged = true;
-    }
-
-  }
+    this._userService.isLoggedIn.subscribe( (value) => {
+      this.isLogged = value;
+    } )
+   }
 
   logOut() {
     localStorage.removeItem('user');

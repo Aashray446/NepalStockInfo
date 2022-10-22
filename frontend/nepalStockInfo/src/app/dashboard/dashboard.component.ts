@@ -10,13 +10,13 @@ export class DashboardComponent implements OnInit {
 
   public loggedEmail = this.userService.getLoggedInEmail();
 
-  public myfavStocks = this.userService.getAllFavourate(this.loggedEmail);
+  // public myfavStocks = this.userService.getAllFavourate(this.loggedEmail);
 
   constructor(private userService:UserServicesService) { }
 
   ngOnInit(): void {
 
-    this.myfavStocks = this.userService.getAllFavourate(this.loggedEmail);
+    // this.myfavStocks = this.userService.getAllFavourate(this.loggedEmail);
   }
 
 
