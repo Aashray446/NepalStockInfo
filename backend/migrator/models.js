@@ -3,4 +3,6 @@
  */
 require('#models/User');
 require('#models/DisabledRefreshToken');
+require('#models/ShareDetails');
+require('#models/Fav');
 // Add your models here ...

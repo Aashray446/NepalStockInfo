@@ -31,10 +31,10 @@ const User = database.define(
 		// Example of virtual field:
 		fullName: {
 			type: DataTypes.VIRTUAL,
-			get: function() {
+			get: function () {
 				const firstName = this.getDataValue("firstName");
 				const lastName = this.getDataValue("lastName");
-				return `${(firstName || "" ).trim()} ${(lastName || "").trim()}`.trim();
+				return `${(firstName || "").trim()} ${(lastName || "").trim()}`.trim();
 			}
 		}
 	},
@@ -62,11 +62,15 @@ User.associate = (models) => {
 	});
 }
 
-User.findById = function(id) {
+User.associate = (models) => {
+	models.ShareDetails.belongsToMany(models.User, { through: models.Fav });
+}
+
+User.findById = function (id) {
 	return this.findByPk(id);
 }
 
-User.findOneByEmail = function(email) {
+User.findOneByEmail = function (email) {
 	const query = {
 		where: {
 			email
@@ -77,7 +81,7 @@ User.findOneByEmail = function(email) {
 // Static methods\
 
 // Instance methods:
-User.prototype.toJSON = function() {
+User.prototype.toJSON = function () {
 	const values = { ...this.get() };
 	delete values.password;
 	return values;

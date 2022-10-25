@@ -4,3 +4,4 @@
 require('./User');
 require('./DisabledRefreshToken');
 // Add your models here ...
+require('./ShareDetails');
