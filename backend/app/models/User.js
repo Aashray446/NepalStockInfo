@@ -63,7 +63,7 @@ User.associate = (models) => {
 }
 
 User.associate = (models) => {
-	models.ShareDetails.belongsToMany(models.User, { through: models.Fav });
+	models.ShareDetails.belongsToMany(models.User, { through: "Fav" });
 }
 
 User.findById = function (id) {

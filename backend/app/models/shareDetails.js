@@ -31,13 +31,13 @@ const ShareDetails = database.define(
             type: DataTypes.INTEGER
         },
         paidUpCapital: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         },
         bookValue: {
             type: DataTypes.INTEGER
         },
         marketCap: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         },
         ltd: {
             type: DataTypes.INTEGER
@@ -54,8 +54,7 @@ const ShareDetails = database.define(
 
 // Static methods\s
 ShareDetails.associate = (models) => {
-    models.User.belongsToMany(models.ShareDetails, { through: "Fav" });
-    models.ShareDetails.belongsToMany(models.User, { through: "Fav" });
+    models.User.belongsToMany(models.ShareDetails, { through: models.Fav });
 };
 // Instance methods:
 
