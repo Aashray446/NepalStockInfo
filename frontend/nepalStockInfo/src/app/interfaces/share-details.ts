@@ -1,4 +1,5 @@
 export interface ShareDetails {
+  id: number;
   imgUrl : string;
   category : string;
   company : string;
@@ -9,12 +10,5 @@ export interface ShareDetails {
   bookValue: number;
   marketCap: number;
   ltd: number;
-  dividenHistory: [
-    {
-      year: number;
-      cash: number;
-      bonus: number;
-      total: number;
-    }
-  ];
+  dividendHistory: string;
 }

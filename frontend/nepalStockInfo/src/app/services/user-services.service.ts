@@ -14,7 +14,8 @@ export class UserServicesService {
   isLoggedIn = new Subject<boolean>();
   loggedUser = new Subject<User>();
 
-  constructor(private _httpClient: HttpClient, private _toastr : ToastrService, private _route : Router) { }
+  constructor(private _httpClient: HttpClient, private _toastr : ToastrService, private _route : Router) {
+   }
 
 
   public getUserInfo() {

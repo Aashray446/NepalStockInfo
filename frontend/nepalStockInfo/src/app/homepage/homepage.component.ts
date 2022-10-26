@@ -33,7 +33,7 @@ export class HomepageComponent implements OnInit {
   }
 
   goToDetails(shareName:ShareDetails) {
-    this.shareDetailService.setShareDetails(shareName);
+    // this.shareDetailService.setShareDetails(shareName);
     this.router.navigate(['/stock-Information', shareName.company]);
   }
 

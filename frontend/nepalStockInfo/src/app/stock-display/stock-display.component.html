@@ -7,8 +7,8 @@
             <div class="flexslider1">
               <ul class="slides">
                 <li data-thumb="../../assets/images/upperhewakhola.jpg">
-                  <div class="thumb-image"> <img [src]="this.shareDetails.imgUrl" data-imagezoom="true"
-                      class="img-fluid" alt=" ">
+                  <div class="thumb-image"> <img [src]="this.webServerAddress+this.shareDetails.imgUrl"
+                      data-imagezoom="true" class="img-fluid" alt=" ">
                   </div>
                 </li>
               </ul>
@@ -44,10 +44,7 @@
               </div>
               <div class="color-quality-right">
                 <h5>Dividend History : <span></span></h5>
-              <h5>&emsp;Year : <span>{{this.shareDetails.dividenHistory[0].year}}</span></h5>
-                <h5>&emsp;Cash : <span>{{this.shareDetails.dividenHistory[0].cash}}</span></h5>
-                <h5>&emsp;Bonus : <span>{{this.shareDetails.dividenHistory[0].bonus}}</span></h5>
-                <h5>&emsp;Total : <span>{{this.shareDetails.dividenHistory[0].total}}</span></h5>
+                <h5>{{this.shareDetails.dividendHistory}}</h5>
               </div>
             </div>
           </div>
@@ -55,7 +52,7 @@
           <div class="occasion-cart">
             <div class="googles single-item singlepage">
               <form action="#" method="post">
-                <button type="submit" class="googles-cart pgoogles-cart">
+                <button type="submit" (click)="addToFav(this.shareDetails.id)" class="googles-cart pgoogles-cart">
                   Add to Watchlist
                 </button>
 

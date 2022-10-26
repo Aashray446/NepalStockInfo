@@ -28,11 +28,15 @@ export class CardsDetailContainerComponent implements OnInit {
 
 
     if (this.filterOption == "all") {
-      this.shareDetails = this.searchDetails.shareDetails;
+      this.searchDetails.updateShareDetails().then((data) => {
+        this.shareDetails = data;
+      });
+      console.log(this.shareDetails)
     }
     else {
 
       this.shareDetails = this.searchDetails.getShareDetailsByCategory(this.filterOption);
+
 
     }
 

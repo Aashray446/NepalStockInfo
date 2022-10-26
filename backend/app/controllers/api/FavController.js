@@ -5,6 +5,9 @@ module.exports = function ModelController() {
     const _create = (req, res) => {
         // body is part of a form-data
         const fav = req.body;
+        if (req.token.id == null) {
+            return res.status(401).json({ message: 'Please Log In Continue' });
+        }
         Model
             .create({
                 ShareDetailId: fav.shareDetailId,
@@ -21,7 +24,7 @@ module.exports = function ModelController() {
                 // better save it to log file
                 console.error(err);
 
-                return res.status(500).json({ msg: 'Internal server error' });
+                return res.status(500).json({ msg: 'Already Existed In Fav List' });
             });
     };
 
@@ -72,7 +75,7 @@ module.exports = function ModelController() {
 
     const _destroy = (req, res) => {
         // params is part of an url
-        const { id } = req.params;
+        const id = req.body.id
 
         Model
             .findByPk(id)

@@ -15,6 +15,10 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if(localStorage.getItem('token')) {
+      this.isLogged = true;
+    }
+
     this._userService.isLoggedIn.subscribe( (value) => {
       this.isLogged = value;
     } )
@@ -23,7 +27,7 @@ export class NavBarComponent implements OnInit {
   logOut() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
-    this.isLogged = false;
+    this._userService.isLoggedIn.next(false);
   }
 
 

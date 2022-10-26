@@ -6,7 +6,8 @@
 
         <div class="col-md-3 product-men women_two mt-5" *ngFor="let stocs of shareDetails">
 
-          <app-card-details [name]="stocs.company" [url]="stocs.imgUrl" [category]="stocs.category"></app-card-details>
+          <app-card-details [name]="stocs.company" [url]="stocs.imgUrl" [category]="stocs.category" [id]="stocs.id">
+          </app-card-details>
 
         </div>
 
